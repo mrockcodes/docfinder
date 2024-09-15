@@ -1,0 +1,6 @@
+npm install -g yo generator-office
+
+yo office
+
+cd <your-project-folder>
+// change the project folder you prefered
