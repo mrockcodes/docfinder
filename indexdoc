@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doc Finder</title>
+  <script src="taskpane.js"></script>
+</head>
+<body>
+  <h1>Doc Finder</h1>
+  <input type="text" id="searchInput" placeholder="Enter keyword" />
+  <button onclick="searchDocuments()">Search</button>
+  <div id="results"></div>
+</body>
+</html>
