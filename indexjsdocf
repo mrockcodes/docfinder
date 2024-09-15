@@ -1,0 +1,27 @@
+Office.onReady(info => {
+  if (info.host === Office.HostType.Word) {
+    // Office is ready
+    console.log('Office is ready');
+  }
+});
+
+async function searchDocuments() {
+  await Word.run(async (context) => {
+    const searchTerm = document.getElementById('searchInput').value;
+    const searchResults = context.document.body.search(searchTerm, { matchCase: false, matchWholeWord: false });
+    
+    context.load(searchResults);
+    await context.sync();
+
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
+
+    searchResults.items.forEach((item, index) => {
+      resultsDiv.innerHTML += `<p>Result ${index + 1}: ${item.text}</p>`;
+    });
+
+    if (searchResults.items.length === 0) {
+      resultsDiv.innerHTML = '<p>No results found</p>';
+    }
+  });
+}
